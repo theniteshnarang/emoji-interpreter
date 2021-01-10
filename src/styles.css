@@ -1,4 +1,15 @@
+body {
+  background-color: aliceblue;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
+}
+.emojiBox {
+  max-width: 40vw;
+  margin: 1rem auto;
+  border: 1px solid black;
+  padding: 1rem;
+  background-color: lightblue;
 }

@@ -42,20 +42,19 @@ export default function App() {
   //     setCount(emojiDict[inputValue]);
   //   } else setCount("Not in our Database");
   // }
-  emojiArrays = Object.keys(emojiDict);
+  let emojiArrays = Object.keys(emojiDict);
   // console.log(emojiArrays);
 
   function changeHandlers(event) {
-    inputValue = event.target.value;
-    meaning = emojiDict[inputValue];
-    // console.log(meaning);
+    let inputValue = event.target.value;
+    let meaning = emojiDict[inputValue];
     if (meaning === undefined && inputValue !== "")
       meaning = "Sorry! Not in our Database";
 
     setState(meaning);
   }
   function clickHandler(emoji) {
-    meaning = emojiDict[emoji];
+    let meaning = emojiDict[emoji];
     setState(meaning);
   }
   return (
@@ -67,15 +66,17 @@ export default function App() {
       <label style={{ color: "grey" }}>Meaning : </label>
       <h3 style={{ color: "green" }}>{state}</h3>
       <h3>Or Click the Emoji's:</h3>
-      {emojiArrays.map((emoji) => (
-        <span
-          onClick={() => clickHandler(emoji)}
-          style={{ padding: "0.2rem", fontSize: "2rem", cursor: "pointer" }}
-          key={emoji}
-        >
-          {emoji}
-        </span>
-      ))}
+      <div className="emojiBox">
+        {emojiArrays.map((emoji) => (
+          <span
+            onClick={() => clickHandler(emoji)}
+            style={{ padding: "0.2rem", fontSize: "2rem", cursor: "pointer" }}
+            key={emoji}
+          >
+            {emoji}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
